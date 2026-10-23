@@ -29,7 +29,7 @@ body {
 
 /* Контент */
 .page-content {
-    max-width: 900px;
+    max-width: 950px;
     margin: 40px auto;
     padding: 0 20px;
     display: flex;
@@ -40,17 +40,21 @@ body {
     background: #ffffff;
     border: 1px solid #dcdcdc;
     border-radius: 8px;
-    padding: 30px;
+    padding: 30px 50px; /* Добавили отступы по бокам для стрелок */
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .slider-container h2 {
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 22px;
     color: #2c3e50;
     text-align: center;
+}
+
+.slider-wrapper {
+    position: relative;
 }
 
 /* Стили слайдов */
@@ -61,15 +65,60 @@ body {
 .slide img {
     width: 100%;
     height: 220px;
-    object-fit: cover; /* Гарантирует одинаковый размер картинок без искажений */
+    object-fit: cover;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
+}
+
+/* КРУТЫЕ И ЗАМЕТНЫЕ КНОПКИ ПРОКРУТКИ (СТРЕЛКИ) */
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 45px;
+    height: 45px;
+    background-color: #314357 !important;
+    color: white !important;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: #1a252f !important;
+}
+
+.slick-prev {
+    left: -55px;
+}
+
+.slick-next {
+    right: -55px;
+}
+
+/* Переопределяем стандартные иконки slick на символы стрелочек */
+.slick-prev:before, .slick-next:before {
+    font-family: monospace;
+    font-size: 26px;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.slick-prev:before {
+    content: "❮";
+}
+
+.slick-next:before {
+    content: "❯";
 }
 
 /* Пейджер */
 .pager {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
     font-size: 16px;
     font-weight: 600;
     color: #34495e;
