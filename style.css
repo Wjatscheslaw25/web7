@@ -61,7 +61,7 @@ body {
 .slide img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: cover; /* Гарантирует одинаковый размер картинок без искажений */
     border-radius: 6px;
     border: 1px solid #e2e8f0;
 }
