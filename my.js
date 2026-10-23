@@ -6,10 +6,10 @@ $(document).ready(function() {
         infinite: true,
         slidesToShow: 3,   // 3 изображения на ПК
         slidesToScroll: 1,
-        arrows: true,
+        arrows: true,      // Включаем стрелки
         responsive: [
             {
-                breakpoint: 768, // На смартфонах
+                breakpoint: 768, // На мобильных устройствах
                 settings: {
                     slidesToShow: 1 // 1 изображение на экране
                 }
