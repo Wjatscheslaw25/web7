@@ -1,17 +1,18 @@
 $(document).ready(function() {
     let $slider = $('.slider');
 
-    // Инициализация Slick Slider
+    // Инициализация Slick Slider с четким правилом адаптивности
     $slider.slick({
         infinite: true,
-        slidesToShow: 3,   // 3 изображения на ПК
+        slidesToShow: 3,   // На ПК — 3 изображения
         slidesToScroll: 1,
-        arrows: true,      // Включаем стрелки
+        arrows: true,
         responsive: [
             {
-                breakpoint: 768, // На мобильных устройствах
+                breakpoint: 768, // На экранах меньше 768px (смартфоны)
                 settings: {
-                    slidesToShow: 1 // 1 изображение на экране
+                    slidesToShow: 1, // Ровно 1 изображение на экране
+                    slidesToScroll: 1
                 }
             }
         ]
@@ -19,10 +20,9 @@ $(document).ready(function() {
 
     // Функция обновления пейджера
     function updatePager(slick) {
-        let slidesToShow = slick.options.slidesToShow;
-        if (window.innerWidth < 768) {
-            slidesToShow = 1;
-        }
+        let currentBreakpoint = slick.activeBreakpoint;
+        // Если сработал брейкпоинт для мобилок, показываем по 1 на странице
+        let slidesToShow = (window.innerWidth < 768) ? 1 : 3;
         
         let totalSlides = slick.slideCount;
         let totalPages = Math.ceil(totalSlides / slidesToShow);
